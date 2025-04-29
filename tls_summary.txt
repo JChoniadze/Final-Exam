@@ -1,0 +1,31 @@
+TLS Communication Inspection Summary
+
+1. Connection Details
+- Server Connected: google.com
+- TLS Version: TLS 1.3
+- Cipher Suite Used: TLS_AES_256_GCM_SHA384
+- Certificate Chain:
+  - Root Certificate Authority (CA): GlobalSign Root CA
+  - Intermediate Certificate Authority: Google Internet Authority G4
+  - Leaf Certificate: *.google.com
+
+2. Wireshark TLS Handshake Analysis
+- Client Hello:
+  - The client (browser) proposes supported TLS versions, cipher suites, and random numbers for secure negotiation.
+- Server Certificate:
+  - The server sends its public X.509 certificate to prove its identity.
+- Key Exchange:
+  - Ephemeral Diffie-Hellman (ECDHE) key exchange is performed to securely create a shared secret between the client and server.
+
+3. How TLS Provides Confidentiality, Integrity, and Authentication
+- Confidentiality:
+  - After key exchange, all application data (HTTP) is encrypted using symmetric encryption (AES-256-GCM). This prevents anyone from reading the communication.
+
+- Integrity:
+  - TLS ensures that transmitted messages are not altered. This is achieved through authenticated encryption (AEAD) that combines encryption and integrity checking.
+
+- Authentication:
+  - The server’s certificate chain is verified by the client. This confirms that the server is trusted and prevents man-in-the-middle attacks.
+
+Conclusion:
+TLS ensures that communications over the internet are encrypted, verified, and protected against tampering. The handshake steps create a secure session where confidentiality, integrity, and authentication are guaranteed.
